@@ -14,7 +14,7 @@ public class RedisServiceImpl extends IRedisService<RedisModel> {
 
     @Override
     protected String getRedisKey() {
-        return this.REDIS_KEY;
+        return REDIS_KEY;
     }
 }
 

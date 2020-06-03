@@ -14,6 +14,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+//@EnableJpaRepositories(basePackages = {"com.example.elastic.dao"})
+//@EnableElasticsearchRepositories(basePackages = "com.example.elastic.daoes")
 public class AuthenHighLevelElastic {
 
     @Value("${spring.data.elasticsearch.cluster-nodes}")
