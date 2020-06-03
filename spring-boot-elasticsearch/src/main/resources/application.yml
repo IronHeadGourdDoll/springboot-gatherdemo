@@ -10,8 +10,8 @@ server:
 spring:
   data:
     elasticsearch:
-      cluster-nodes: 10.20.4.66
+      cluster-nodes: 39.99.195.107
       cluster-port: 9200
-      username: elastic
-      password: 654321 
+      username: docker-cluster
+      password: 123456
       
