@@ -1,0 +1,13 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gourddoll.dao.AddressDAO">
+    <resultMap type="Address" id="AddressResult">
+        <result property="id"    column="id"    />
+        <result property="detail"    column="detail"    />
+    </resultMap>
+
+<!--    <select id="findByAddressId" resultType="com.gourddoll.entity.Address" >-->
+<!--        select a.*-->
+<!--        from t_address a, t_user_address ua-->
+<!--        where ua.user_id=#{sid} and ua.address_id=a.address_id-->
+<!--    </select>-->
+</mapper>

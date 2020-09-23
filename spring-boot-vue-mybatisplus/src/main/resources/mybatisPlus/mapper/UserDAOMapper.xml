@@ -1,0 +1,39 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gourddoll.dao.UserDAO">
+    <resultMap type="User" id="UserResult">
+        <result property="id"    column="id"    />
+        <result property="name"    column="name"    />
+        <result property="age"    column="age"    />
+        <result property="bir"    column="bir"    />
+        <collection property="addresses" column="{sid=id}" select="findByAddressId"/>
+    </resultMap>
+
+    <select id="findByAddressId" resultType="com.gourddoll.entity.Address" >
+        select a.*
+        from t_address a, t_user_address ua
+        where ua.user_id=#{sid} and ua.address_id=a.address_id
+    </select>
+
+    <select id="findAll" resultMap="UserResult">
+        select * from t_user
+    </select>
+
+    <insert id="save" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+        insert into t_user values (#{id},#{name},#{age},#{bir})
+    </insert>
+
+    <update id="update" parameterType="User">
+        update t_user
+        set name=#{name},age=#{age},bir=#{bir}
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="String">
+        delete from t_user where id = #{id}
+    </delete>
+
+    <select id="finById" parameterType="String" resultType="com.gourddoll.entity.User">
+        select id,name,age,bir from t_user where id = #{id}
+    </select>
+
+</mapper>
